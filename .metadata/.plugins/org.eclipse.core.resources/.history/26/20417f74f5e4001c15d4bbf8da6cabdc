@@ -1,0 +1,23 @@
+package com.example.demo.controllers;
+
+import java.util.Map;
+
+import javax.annotation.PostConstruct;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.models.entity.UserProfile;
+
+@RestController
+public class UserProfileController {
+ 
+	
+	@PostConstruct
+	public void init() { 
+		userMap = new HashMap<String, UserProfile> userMap();
+	}
+	
+	
+	
+	private Map<String,UserProfile>userMap;	
+}

@@ -1,0 +1,46 @@
+package com.example.demo.controllers;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.annotation.PostConstruct;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.models.entity.UserProfile;
+
+@RestController
+public class UserProfileController {
+	
+	private Map <String,UserProfile> userMap;	
+	
+	@PostConstruct
+	public void init() { 
+		
+		userMap = new HashMap <String, UserProfile>();
+		userMap.put("1", new UserProfile("1","qweq","12313423","asdasd 123"));
+		userMap.put("2", new UserProfile("2","asdf","23423423","sdfvdf 234"));
+		userMap.put("3", new UserProfile("3","zcxc","45645645","sdfsff 254"));
+		userMap.put("4", new UserProfile("4","fghf","56758776","fghfhg 876"));
+	}
+	
+	@GetMapping("/user/{id}")
+	public UserProfile get(@PathVariable("id") String id) {
+		return userMap.get(id);
+	}
+	
+	@GetMapping("/user/all")
+	public List<UserProfile>getList(){
+		return new ArrayList<UserProfile>(userMap.values());
+	}
+	
+	@PutMapping("/user/{id}")
+	public void putUserProfile)(@PathVariable("id")String idm )
+	
+	
+}

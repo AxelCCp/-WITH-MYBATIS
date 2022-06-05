@@ -1,0 +1,29 @@
+package com.example.demo.controllers;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.annotation.PostConstruct;
+
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.demo.models.entity.UserProfile;
+
+@RestController
+public class UserProfileController {
+	
+	private Map <String,UserProfile> userMap;	
+	
+	@PostConstruct
+	public void init() { 
+		
+		userMap = new HashMap <String, UserProfile>();
+		userMap.put("1", new UserProfile("1","qweq","12313423","asdasd 123"));
+		userMap.put("1", new UserProfile("2","asdf","23423423","sdfvdf 234"));
+		userMap.put("1", new UserProfile("3","zcxc","45645645","sdfsff 254"));
+		userMap.put("1", new UserProfile("4","fghf","56758776","fghfhg 876"));
+	}
+	
+
+	
+}
